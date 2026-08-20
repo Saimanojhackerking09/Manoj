@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MANOJ // JARVIS SYSTEM</title>
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:#050607;
+    color:#fff;
+
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================================
+   JARVIS BACKGROUND
+========================================= */
+
+body{
+
+    background:
+
+    radial-gradient(
+        circle at 50% 30%,
+        rgba(255,50,20,.12),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 80% 80%,
+        rgba(255,180,0,.08),
+        transparent 30%
+    ),
+
+    #050607;
+}
+
+
+/* GRID */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-5;
+
+    background-image:
+
+    linear-gradient(
+        rgba(255,60,20,.045) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(255,60,20,.045) 1px,
+        transparent 1px
+    );
+
+    background-size:
+    50px 50px;
+
+    mask-image:
+    linear-gradient(
+        to bottom,
+        black,
+        transparent
+    );
+}
+
+
+/* SCAN LINE */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    left:0;
+
+    width:100%;
+
+    height:2px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #ff2a00,
+        transparent
+    );
+
+    opacity:.4;
+
+    z-index:999;
+
+    animation:
+    scan 6s linear infinite;
+
+    pointer-events:none;
+}
+
+@keyframes scan{
+
+    0%{
+        top:-5px;
+    }
+
+    100%{
+        top:100%;
+    }
+}
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+.particles{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+.particle{
+
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    background:#ff3b18;
+
+    box-shadow:
+    0 0 8px #ff3b18;
+
+    animation:
+    particleUp linear infinite;
+}
+
+@keyframes particleUp{
+
+    from{
+        transform:
+        translateY(110vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    to{
+        transform:
+        translateY(-20vh);
+        opacity:0;
+    }
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    padding:
+    15px 5%;
+
+    z-index:1000;
+}
+
+nav{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    height:65px;
+
+    padding:
+    0 22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:
+    rgba(5,7,8,.82);
+
+    border:
+    1px solid
+    rgba(255,50,20,.25);
+
+    backdrop-filter:
+    blur(15px);
+
+    clip-path:
+    polygon(
+        0 0,
+        97% 0,
+        100% 30%,
+        100% 100%,
+        3% 100%,
+        0 70%
+    );
+}
+
+.logo{
+
+    font-size:22px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+.logo span{
+
+    color:#ff3b18;
+
+    text-shadow:
+    0 0 15px #ff3b18;
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:28px;
+
+    list-style:none;
+}
+
+.nav-links a{
+
+    color:#999;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+
+    color:#ff3b18;
+
+    text-shadow:
+    0 0 10px #ff3b18;
+}
+
+.menu{
+
+    display:none;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    color:#ff3b18;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:
+    130px 20px 70px;
+}
+
+.hero-content{
+
+    max-width:900px;
+}
+
+
+/* JARVIS STATUS */
+
+.system-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:
+    8px 16px;
+
+    border:
+    1px solid
+    rgba(255,50,20,.4);
+
+    background:
+    rgba(255,40,10,.05);
+
+    color:#ff5a3d;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    margin-bottom:28px;
+
+    clip-path:
+    polygon(
+        8px 0,
+        100% 0,
+        calc(100% - 8px) 100%,
+        0 100%
+    );
+}
+
+.status-light{
+
+    width:7px;
+    height:7px;
+
+    background:#ff3b18;
+
+    box-shadow:
+    0 0 15px #ff3b18;
+
+    border-radius:50%;
+
+    animation:
+    pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+    50%{
+        opacity:.3;
+    }
+}
+
+
+/* HERO TITLE */
+
+.hero h1{
+
+    font-size:
+    clamp(
+        55px,
+        10vw,
+        110px
+    );
+
+    line-height:1;
+
+    letter-spacing:
+    -5px;
+
+    margin-bottom:20px;
+
+    text-transform:
+    uppercase;
+}
+
+.hero h1 span{
+
+    color:#ff3b18;
+
+    text-shadow:
+    0 0 10px rgba(255,60,20,.5),
+    0 0 35px rgba(255,60,20,.25);
+}
+
+
+/* JARVIS TEXT */
+
+.hero h2{
+
+    font-size:22px;
+
+    color:#777;
+
+    letter-spacing:1px;
+
+    margin-bottom:22px;
+}
+
+#typing{
+
+    color:#ffb300;
+
+    text-shadow:
+    0 0 12px
+    rgba(255,179,0,.6);
+}
+
+
+/* DESCRIPTION */
+
+.description{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:#777;
+
+    line-height:1.9;
+
+    font-size:15px;
+}
+
+
+/* =========================================
+   ARC REACTOR
+========================================= */
+
+.reactor{
+
+    position:relative;
+
+    width:130px;
+    height:130px;
+
+    margin:
+    35px auto;
+
+    border-radius:50%;
+
+    border:
+    2px solid
+    rgba(255,60,20,.5);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    animation:
+    reactorRotate 10s linear infinite;
+
+    box-shadow:
+    0 0 30px
+    rgba(255,60,20,.15);
+}
+
+.reactor::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:85px;
+    height:85px;
+
+    border-radius:50%;
+
+    border:
+    2px dashed
+    #ff3b18;
+
+    box-shadow:
+    0 0 20px
+    rgba(255,60,20,.4);
+}
+
+.reactor::after{
+
+    content:"";
+
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        #fff,
+        #ffb300 35%,
+        #ff3b18 70%
+    );
+
+    box-shadow:
+    0 0 20px #ff3b18,
+    0 0 50px #ff3b18;
+}
+
+@keyframes reactorRotate{
+
+    to{
+        transform:
+        rotate(360deg);
+    }
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.buttons{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+}
+
+.btn{
+
+    padding:
+    14px 25px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+
+    clip-path:
+    polygon(
+        8px 0,
+        100% 0,
+        calc(100% - 8px) 100%,
+        0 100%
+    );
+}
+
+.primary{
+
+    background:#ff3b18;
+
+    color:#fff;
+
+    box-shadow:
+    0 0 20px
+    rgba(255,59,24,.25);
+}
+
+.primary:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 0 30px
+    rgba(255,59,24,.55);
+}
+
+.secondary{
+
+    background:
+    rgba(255,255,255,.03);
+
+    color:#aaa;
+
+    border:
+    1px solid
+    #333;
+}
+
+.secondary:hover{
+
+    color:#ffb300;
+
+    border-color:#ffb300;
+
+    transform:
+    translateY(-5px);
+}
+
+
+/* =========================================
+   SOCIALS
+========================================= */
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:25px;
+}
+
+.social{
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+    rgba(255,255,255,.03);
+
+    border:
+    1px solid
+    rgba(255,60,20,.2);
+
+    transition:.3s;
+}
+
+.social img{
+
+    width:24px;
+    height:24px;
+
+    object-fit:contain;
+}
+
+.social:hover{
+
+    transform:
+    translateY(-6px);
+
+    border-color:#ff3b18;
+
+    box-shadow:
+    0 0 20px
+    rgba(255,59,24,.2);
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+section{
+
+    padding:
+    110px 6%;
+}
+
+.section-title{
+
+    text-align:center;
+
+    font-size:38px;
+
+    letter-spacing:2px;
+
+    margin-bottom:55px;
+
+    text-transform:uppercase;
+}
+
+.section-title span{
+
+    color:#ff3b18;
+
+    text-shadow:
+    0 0 15px
+    rgba(255,59,24,.4);
+}
+
+
+/* =========================================
+   HUD CARD
+========================================= */
+
+.hud-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:40px;
+
+    background:
+    rgba(10,12,14,.72);
+
+    border:
+    1px solid
+    rgba(255,60,20,.2);
+
+    position:relative;
+
+    backdrop-filter:
+    blur(15px);
+}
+
+.hud-card::before{
+
+    content:"SYSTEM";
+
+    position:absolute;
+
+    top:-9px;
+    left:20px;
+
+    padding:
+    0 10px;
+
+    background:#050607;
+
+    color:#ff3b18;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+.hud-card p{
+
+    color:#777;
+
+    line-height:2;
+
+    text-align:center;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills{
+
+    max-width:1050px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.card{
+
+    padding:30px;
+
+    background:
+    rgba(10,12,14,.75);
+
+    border:
+    1px solid
+    rgba(255,255,255,.07);
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:2px;
+
+    background:#ff3b18;
+
+    transition:.4s;
+}
+
+.card:hover::before{
+
+    left:0;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-7px);
+
+    border-color:
+    rgba(255,59,24,.35);
+
+    box-shadow:
+    0 15px 40px
+    rgba(255,59,24,.07);
+}
+
+.icon{
+
+    font-size:35px;
+
+    margin-bottom:15px;
+}
+
+.card h3{
+
+    color:#ddd;
+
+    margin-bottom:10px;
+}
+
+.card p{
+
+    color:#666;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================
+   PROJECTS
+========================================= */
+
+.projects{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.project{
+
+    background:
+    rgba(10,12,14,.75);
+
+    border:
+    1px solid
+    rgba(255,255,255,.07);
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+.project:hover{
+
+    transform:
+    translateY(-8px);
+
+    border-color:
+    rgba(255,59,24,.4);
+}
+
+.project-image{
+
+    height:180px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:60px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,59,24,.12),
+        rgba(255,179,0,.07)
+    );
+}
+
+.project-body{
+
+    padding:25px;
+}
+
+.project-body h3{
+
+    color:#ffb300;
+
+    margin-bottom:10px;
+}
+
+.project-body p{
+
+    color:#666;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats{
+
+    max-width:900px;
+
+    margin:
+    50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+}
+
+.stat{
+
+    padding:25px;
+
+    text-align:center;
+
+    background:
+    rgba(10,12,14,.75);
+
+    border:
+    1px solid
+    rgba(255,59,24,.15);
+}
+
+.stat h3{
+
+    font-size:34px;
+
+    color:#ff3b18;
+
+    text-shadow:
+    0 0 15px
+    rgba(255,59,24,.4);
+}
+
+.stat p{
+
+    color:#666;
+
+    margin-top:5px;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact{
+
+    max-width:750px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:50px 25px;
+
+    background:
+    rgba(10,12,14,.75);
+
+    border:
+    1px solid
+    rgba(255,59,24,.2);
+}
+
+.contact p{
+
+    color:#777;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    border-top:
+    1px solid
+    rgba(255,59,24,.12);
+
+    color:#444;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================
+   REVEAL
+========================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+    translateY(40px);
+
+    transition:
+    .8s ease;
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:800px){
+
+    .nav-links{
+
+        position:absolute;
+
+        top:75px;
+        right:0;
+
+        width:220px;
+
+        padding:20px;
+
+        flex-direction:column;
+
+        background:
+        rgba(5,7,8,.97);
+
+        border:
+        1px solid
+        rgba(255,59,24,.2);
+
+        display:none;
+    }
+
+    .nav-links.active{
+
+        display:flex;
+    }
+
+    .menu{
+
+        display:block;
+    }
+
+    .skills,
+    .projects{
+
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+
+        grid-template-columns:1fr;
+    }
+
+    section{
+
+        padding:
+        85px 5%;
+    }
+
+    .hero h1{
+
+        letter-spacing:-3px;
+    }
+
+    .reactor{
+
+        width:110px;
+        height:110px;
+    }
+}
+
+@media(max-width:450px){
+
+    .hero h1{
+
+        font-size:52px;
+    }
+
+    .hero h2{
+
+        font-size:18px;
+    }
+
+    .section-title{
+
+        font-size:29px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- PARTICLES -->
+
+<div
+class="particles"
+id="particles">
+</div>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header>
+
+<nav>
+
+<div class="logo">
+
+MANOJ<span>//</span>
+
+</div>
+
+
+<div
+class="menu"
+id="menu">
+
+☰
+
+</div>
+
+
+<ul
+class="nav-links"
+id="navLinks">
+
+<li>
+<a href="#home">
+HOME
+</a>
+</li>
+
+<li>
+<a href="#about">
+ABOUT
+</a>
+</li>
+
+<li>
+<a href="#skills">
+SKILLS
+</a>
+</li>
+
+<li>
+<a href="#projects">
+PROJECTS
+</a>
+</li>
+
+<li>
+<a href="#contact">
+CONTACT
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section
+class="hero"
+id="home">
+
+<div
+class="hero-content">
+
+
+<div class="system-status">
+
+<span class="status-light"></span>
+
+JARVIS SYSTEM ONLINE
+
+</div>
+
+
+<h1>
+
+I'M
+<span>
+MANOJ
+</span>
+
+</h1>
+
+
+<h2>
+
+SYSTEM ROLE:
+<span id="typing"></span>
+
+</h2>
+
+
+<!-- ARC REACTOR -->
+
+<div class="reactor">
+</div>
+
+
+<p class="description">
+
+Welcome to my digital command center.
+
+I'm interested in coding, artificial intelligence,
+web development, video editing, photo editing
+and creative design.
+
+</p>
+
+
+<div class="buttons">
+
+<a
+href="#projects"
+class="btn primary">
+
+INITIALIZE PROJECTS
+
+</a>
+
+
+<a
+href="#contact"
+class="btn secondary">
+
+CONNECT
+
+</a>
+
+</div>
+
+
+<!-- SOCIAL MEDIA -->
+
+<div class="socials">
+
+
+<a
+class="social"
+href="https://www.instagram.com/manoj_.28_?igsh=MW42ZzF1aHRtajBzMg=="
+target="_blank"
+rel="noopener">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+alt="Instagram">
+
+</a>
+
+
+<a
+class="social"
+href="https://www.snapchat.com/add/its_manoj911?share_id=rnEv7NuGxls&locale=en-IN"
+target="_blank"
+rel="noopener">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/en/a/ad/Snapchat_logo.svg"
+alt="Snapchat">
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section
+id="about">
+
+<h2 class="section-title reveal">
+
+SYSTEM
+<span>PROFILE</span>
+
+</h2>
+
+
+<div
+class="hud-card reveal">
+
+<p>
+
+Hello! I'm Manoj.
+
+I'm exploring the world of technology,
+programming, artificial intelligence,
+web development, video editing,
+photo editing and graphic design.
+
+I enjoy learning new technologies,
+experimenting with ideas and building
+creative digital projects.
+
+This portfolio represents my current
+journey and will continue evolving
+as I learn more.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     SKILLS
+========================================= -->
+
+<section
+id="skills">
+
+<h2 class="section-title reveal">
+
+TECH
+<span>ABILITIES</span>
+
+</h2>
+
+
+<div class="skills">
+
+
+<div class="card reveal">
+
+<div class="icon">
+🌐
+</div>
+
+<h3>
+WEB DEVELOPMENT
+</h3>
+
+<p>
+HTML, CSS and JavaScript for
+modern responsive websites.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon">
+🐍
+</div>
+
+<h3>
+PYTHON
+</h3>
+
+<p>
+Learning programming, logic
+and automation.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon">
+🤖
+</div>
+
+<h3>
+ARTIFICIAL INTELLIGENCE
+</h3>
+
+<p>
+Exploring AI technology,
+tools and creative applications.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon">
+🎬
+</div>
+
+<h3>
+VIDEO EDITING
+</h3>
+
+<p>
+Creating and editing
+digital video content.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon">
+🎨
+</div>
+
+<h3>
+GRAPHIC DESIGN
+</h3>
+
+<p>
+Creating digital graphics,
+visuals and designs.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icon">
+📱
+</div>
+
+<h3>
+CONTENT CREATION
+</h3>
+
+<p>
+Exploring digital content
+and social media.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     PROJECTS
+========================================= -->
+
+<section
+id="projects">
+
+<h2 class="section-title reveal">
+
+MISSION
+<span>PROJECTS</span>
+
+</h2>
+
+
+<div class="projects">
+
+
+<div class="project reveal">
+
+<div class="project-image">
+🌐
+</div>
+
+<div class="project-body">
+
+<h3>
+PORTFOLIO SYSTEM
+</h3>
+
+<p>
+A futuristic personal portfolio
+built using HTML, CSS and JavaScript.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<div class="project-image">
+🤖
+</div>
+
+<div class="project-body">
+
+<h3>
+AI EXPERIMENTS
+</h3>
+
+<p>
+Creative experiments involving
+artificial intelligence and technology.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="project reveal">
+
+<div class="project-image">
+🎨
+</div>
+
+<div class="project-body">
+
+<h3>
+CREATIVE LAB
+</h3>
+
+<p>
+Graphic design, photo editing
+and visual experiments.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+<div class="stat reveal">
+
+<h3>
+10+
+</h3>
+
+<p>
+PROJECTS
+</p>
+
+</div>
+
+
+<div class="stat reveal">
+
+<h3>
+6+
+</h3>
+
+<p>
+SKILLS
+</p>
+
+</div>
+
+
+<div class="stat reveal">
+
+<h3>
+∞
+</h3>
+
+<p>
+IDEAS
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section
+id="contact">
+
+<h2 class="section-title reveal">
+
+OPEN
+<span>CHANNEL</span>
+
+</h2>
+
+
+<div
+class="contact reveal">
+
+<p>
+
+Communication channel ready.
+
+Connect with me through
+Instagram or Snapchat.
+
+</p>
+
+
+<div class="buttons">
+
+
+<a
+class="btn primary"
+
+href="https://www.instagram.com/manoj_.28_?igsh=MW42ZzF1aHRtajBzMg=="
+
+target="_blank"
+
+rel="noopener">
+
+📸 INSTAGRAM
+
+</a>
+
+
+<a
+class="btn secondary"
+
+href="https://www.snapchat.com/add/its_manoj911?share_id=rnEv7NuGxls&locale=en-IN"
+
+target="_blank"
+
+rel="noopener">
+
+👻 SNAPCHAT
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+JARVIS SYSTEM //
+MANOJ PORTFOLIO //
+<span id="year"></span>
+
+</footer>
+
+
+<script>
+
+
+/* =========================================
+   TYPING SYSTEM
+========================================= */
+
+const roles = [
+
+"CREATIVE DEVELOPER",
+
+"AI ENTHUSIAST",
+
+"WEB DESIGNER",
+
+"VIDEO EDITOR",
+
+"CONTENT CREATOR"
+
+];
+
+
+const typing =
+document.getElementById(
+"typing"
+);
+
+
+let roleIndex = 0;
+
+let characterIndex = 0;
+
+let deleting = false;
+
+
+function typingEffect(){
+
+const role =
+roles[roleIndex];
+
+
+if(!deleting){
+
+typing.textContent =
+role.substring(
+0,
+characterIndex + 1
+);
+
+characterIndex++;
+
+
+if(
+characterIndex ===
+role.length
+){
+
+deleting = true;
+
+setTimeout(
+typingEffect,
+1400
+);
+
+return;
+
+}
+
+}
+
+else{
+
+typing.textContent =
+role.substring(
+0,
+characterIndex - 1
+);
+
+characterIndex--;
+
+
+if(characterIndex === 0){
+
+deleting = false;
+
+roleIndex++;
+
+if(
+roleIndex >=
+roles.length
+){
+
+roleIndex = 0;
+
+}
+
+}
+
+}
+
+
+setTimeout(
+
+typingEffect,
+
+deleting
+? 55
+: 95
+
+);
+
+}
+
+typingEffect();
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+const menu =
+document.getElementById(
+"menu"
+);
+
+const navLinks =
+document.getElementById(
+"navLinks"
+);
+
+
+menu.addEventListener(
+"click",
+()=>{
+
+navLinks.classList.toggle(
+"active"
+);
+
+});
+
+
+document
+.querySelectorAll(
+".nav-links a"
+)
+.forEach(link=>{
+
+link.addEventListener(
+"click",
+()=>{
+
+navLinks.classList.remove(
+"active"
+);
+
+});
+
+});
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const revealElements =
+document.querySelectorAll(
+".reveal"
+);
+
+
+function reveal(){
+
+revealElements.forEach(
+element=>{
+
+const position =
+element
+.getBoundingClientRect()
+.top;
+
+
+if(
+position <
+window.innerHeight - 80
+){
+
+element.classList.add(
+"show"
+);
+
+}
+
+});
+
+}
+
+
+window.addEventListener(
+"scroll",
+reveal
+);
+
+reveal();
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+const particles =
+document.getElementById(
+"particles"
+);
+
+
+for(
+let i = 0;
+i < 55;
+i++
+){
+
+const particle =
+document.createElement(
+"div"
+);
+
+
+particle.className =
+"particle";
+
+
+particle.style.left =
+Math.random() * 100 +
+"%";
+
+
+particle.style.animationDuration =
+(
+5 +
+Math.random() * 10
+) + "s";
+
+
+particle.style.animationDelay =
+Math.random() * 10 +
+"s";
+
+
+particles.appendChild(
+particle
+);
+
+}
+
+
+/* =========================================
+   YEAR
+========================================= */
+
+document.getElementById(
+"year"
+).textContent =
+new Date().getFullYear();
+
+
+</script>
+
+</body>
+</html>
